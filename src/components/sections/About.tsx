@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { MapPin, Briefcase, Cloud, Heart, GraduationCap } from "lucide-react";
+import { Briefcase, Cloud, Heart, Code2, GraduationCap, MapPin, Users, Zap } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 function SpotlightCard({
@@ -18,20 +18,20 @@ function SpotlightCard({
   };
 
   return (
-    <div onMouseMove={handleMouse} className={`spotlight-card p-6 ${className}`}>
-      <div className="relative z-10">{children}</div>
+    <div onMouseMove={handleMouse} className={`spotlight-card ${className}`}>
+      <div className="relative z-10 h-full">{children}</div>
     </div>
   );
 }
 
 const container = {
   hidden: {},
-  show: { transition: { staggerChildren: 0.08 } },
+  show: { transition: { staggerChildren: 0.07 } },
 };
 
 const item = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  hidden: { opacity: 0, y: 25, scale: 0.95 },
+  show: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.45 } },
 };
 
 export function About() {
@@ -39,39 +39,42 @@ export function About() {
 
   return (
     <section id="about" className="py-28 px-6">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-5xl mx-auto">
         <h2
           ref={headingRef}
-          className="text-3xl sm:text-4xl font-bold font-[family-name:var(--font-clash)] mb-14 text-center"
+          className="text-3xl sm:text-4xl font-bold font-[family-name:var(--font-clash)] mb-4 text-center"
         >
           About <span className="gradient-text-purple">Me</span>
         </h2>
+        <p className="text-[var(--text-secondary)] text-center mb-16 max-w-lg mx-auto">
+          A quick overview of my skills, experience, and what drives me
+        </p>
 
         <motion.div
           variants={container}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-50px" }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[140px]"
+          className="grid grid-cols-6 gap-3"
         >
-          {/* Photo card - spans 2 rows */}
-          <motion.div variants={item} className="col-span-2 row-span-2">
-            <SpotlightCard className="h-full flex flex-col justify-end">
-              <div className="flex items-end gap-5 h-full">
-                <div className="w-28 h-28 rounded-2xl overflow-hidden border border-[var(--border)] shrink-0">
-                  <img
-                    src="/images/jatin-photo.png"
-                    alt="Jatin Dhameniya"
-                    className="w-full h-full object-cover"
-                  />
+          {/* Bio card — wide */}
+          <motion.div variants={item} className="col-span-6 md:col-span-4">
+            <SpotlightCard className="p-6">
+              <div className="flex items-start gap-4">
+                <div className="p-2.5 rounded-xl bg-[var(--accent)]/10 shrink-0">
+                  <Zap className="w-5 h-5 text-[var(--accent)]" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-[var(--text-primary)] mb-1">
+                  <h3 className="text-lg font-bold text-[var(--text-primary)] mb-2">
                     Jatin Dhameniya
+                    <span className="ml-2 text-xs font-medium text-green-400 bg-green-500/10 px-2 py-0.5 rounded-full">Immediate Joiner</span>
                   </h3>
                   <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
-                    Final-year B.Tech CSE (AI &amp; ML) student at ABES Engineering College.
-                    Passionate about building fast, responsive web apps that solve real problems.
+                    2026 B.Tech CSE (AI &amp; ML) graduate from ABES Engineering College.
+                    Full-stack developer with hands-on internship experience building React apps,
+                    REST APIs, and ML modules. Solved 400+ DSA problems, AWS certified, and
+                    passionate about writing clean, production-ready code. Looking for
+                    <span className="text-[var(--accent)]"> SDE / Full-Stack / Frontend roles</span>.
                   </p>
                 </div>
               </div>
@@ -79,58 +82,104 @@ export function About() {
           </motion.div>
 
           {/* Location */}
-          <motion.div variants={item}>
-            <SpotlightCard className="h-full flex flex-col justify-between">
-              <MapPin className="w-5 h-5 text-[var(--accent)]" />
-              <div>
-                <p className="text-sm text-[var(--text-secondary)]">Located in</p>
-                <p className="font-semibold text-[var(--text-primary)]">India</p>
+          <motion.div variants={item} className="col-span-3 md:col-span-2">
+            <SpotlightCard className="p-5 h-full">
+              <div className="flex flex-col justify-between h-full gap-3">
+                <MapPin className="w-5 h-5 text-[var(--accent)]" />
+                <div>
+                  <p className="font-bold text-[var(--text-primary)]">India</p>
+                  <p className="text-xs text-[var(--text-secondary)]">Ghaziabad, UP</p>
+                </div>
               </div>
             </SpotlightCard>
           </motion.div>
 
-          {/* Experience */}
-          <motion.div variants={item}>
-            <SpotlightCard className="h-full flex flex-col justify-between">
-              <Briefcase className="w-5 h-5 text-[var(--accent-blue)]" />
-              <div>
-                <p className="text-2xl font-bold text-[var(--text-primary)]">1</p>
-                <p className="text-sm text-[var(--text-secondary)]">Internship</p>
+          {/* DSA — hero stat */}
+          <motion.div variants={item} className="col-span-3 md:col-span-2">
+            <SpotlightCard className="p-5 h-full">
+              <div className="flex flex-col justify-between h-full gap-3">
+                <div className="p-2 rounded-lg bg-[var(--accent)]/10 w-fit">
+                  <Code2 className="w-5 h-5 text-[var(--accent)]" />
+                </div>
+                <div>
+                  <p className="text-3xl font-bold gradient-text-purple leading-none">400+</p>
+                  <p className="text-xs text-[var(--text-secondary)] mt-1">DSA Problems Solved</p>
+                </div>
+              </div>
+            </SpotlightCard>
+          </motion.div>
+
+          {/* Internship */}
+          <motion.div variants={item} className="col-span-3 md:col-span-2">
+            <SpotlightCard className="p-5 h-full">
+              <div className="flex flex-col justify-between h-full gap-3">
+                <div className="p-2 rounded-lg bg-[var(--accent-blue)]/10 w-fit">
+                  <Briefcase className="w-5 h-5 text-[var(--accent-blue)]" />
+                </div>
+                <div>
+                  <p className="font-bold text-[var(--text-primary)] text-sm">Skillmind Software</p>
+                  <p className="text-xs text-[var(--text-secondary)]">SDE Intern &bull; Summer 2025</p>
+                </div>
               </div>
             </SpotlightCard>
           </motion.div>
 
           {/* Education */}
-          <motion.div variants={item}>
-            <SpotlightCard className="h-full flex flex-col justify-between">
-              <GraduationCap className="w-5 h-5 text-[var(--accent)]" />
-              <div>
-                <p className="text-2xl font-bold text-[var(--text-primary)]">75.92%</p>
-                <p className="text-sm text-[var(--text-secondary)]">B.Tech CSE</p>
+          <motion.div variants={item} className="col-span-6 md:col-span-2">
+            <SpotlightCard className="p-5 h-full">
+              <div className="flex items-center gap-4">
+                <div className="p-2 rounded-lg bg-[var(--accent)]/10 shrink-0">
+                  <GraduationCap className="w-5 h-5 text-[var(--accent)]" />
+                </div>
+                <div>
+                  <p className="font-bold text-[var(--text-primary)] text-sm">ABES Engineering College</p>
+                  <p className="text-xs text-[var(--text-secondary)]">B.Tech CSE (AI &amp; ML) &bull; 75.92%</p>
+                </div>
               </div>
             </SpotlightCard>
           </motion.div>
 
           {/* AWS */}
-          <motion.div variants={item}>
-            <SpotlightCard className="h-full flex flex-col justify-between">
-              <Cloud className="w-5 h-5 text-[var(--accent-warm)]" />
-              <div>
-                <p className="font-semibold text-[var(--text-primary)]">AWS</p>
-                <p className="text-sm text-[var(--text-secondary)]">Certified</p>
+          <motion.div variants={item} className="col-span-3 md:col-span-2">
+            <SpotlightCard className="p-5 h-full">
+              <div className="flex items-center gap-3">
+                <div className="p-2 rounded-lg bg-[var(--accent-warm)]/10 shrink-0">
+                  <Cloud className="w-5 h-5 text-[var(--accent-warm)]" />
+                </div>
+                <div>
+                  <p className="font-bold text-[var(--text-primary)] text-sm">AWS Certified</p>
+                  <p className="text-xs text-[var(--text-secondary)]">Cloud Practitioner</p>
+                </div>
               </div>
             </SpotlightCard>
           </motion.div>
 
-          {/* Volunteer - spans 2 columns */}
-          <motion.div variants={item} className="col-span-2">
-            <SpotlightCard className="h-full flex items-center gap-4">
-              <Heart className="w-6 h-6 text-pink-500 shrink-0" />
-              <div>
-                <p className="font-semibold text-[var(--text-primary)]">HUHC NGO Volunteer</p>
-                <p className="text-sm text-[var(--text-secondary)]">
-                  Teaching underprivileged children weekly &bull; Ardema Society Member
-                </p>
+          {/* Volunteering */}
+          <motion.div variants={item} className="col-span-3 md:col-span-2">
+            <SpotlightCard className="p-5 h-full">
+              <div className="flex items-center gap-3">
+                <div className="p-2 rounded-lg bg-pink-500/10 shrink-0">
+                  <Heart className="w-5 h-5 text-pink-500" />
+                </div>
+                <div>
+                  <p className="font-bold text-[var(--text-primary)] text-sm">HUHC NGO</p>
+                  <p className="text-xs text-[var(--text-secondary)]">Volunteer Teacher</p>
+                </div>
+              </div>
+            </SpotlightCard>
+          </motion.div>
+
+          {/* Ardema */}
+          <motion.div variants={item} className="col-span-6 md:col-span-2">
+            <SpotlightCard className="p-5 h-full">
+              <div className="flex items-center gap-3">
+                <div className="p-2 rounded-lg bg-[var(--accent-blue)]/10 shrink-0">
+                  <Users className="w-5 h-5 text-[var(--accent-blue)]" />
+                </div>
+                <div>
+                  <p className="font-bold text-[var(--text-primary)] text-sm">Ardema Society</p>
+                  <p className="text-xs text-[var(--text-secondary)]">Technical Events &amp; Workshops</p>
+                </div>
               </div>
             </SpotlightCard>
           </motion.div>

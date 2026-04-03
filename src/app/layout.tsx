@@ -15,21 +15,26 @@ const clashDisplay = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Jatin Dhameniya | Full-Stack Developer",
+  title: "Jatin Dhameniya | Full-Stack Developer | Open to SDE Roles",
   description:
-    "Portfolio of Jatin Dhameniya — Full-Stack Developer, AI/ML Enthusiast, AWS Certified. B.Tech CSE student at ABES Engineering College.",
+    "Jatin Dhameniya — Full-Stack Developer (React, Node.js, AWS). 2026 B.Tech CSE (AI & ML) graduate. 400+ DSA problems solved. Seeking SDE / Full-Stack / Frontend internships & full-time roles. Immediate joiner.",
   keywords: [
     "Jatin Dhameniya",
-    "portfolio",
     "full-stack developer",
-    "React",
-    "Next.js",
-    "AI ML",
+    "React developer",
+    "Node.js",
+    "software engineer",
+    "fresher SDE",
+    "hire developer",
+    "ABES Engineering College",
+    "DSA",
+    "AWS certified",
+    "portfolio",
   ],
   authors: [{ name: "Jatin Dhameniya" }],
   openGraph: {
-    title: "Jatin Dhameniya | Full-Stack Developer",
-    description: "Full-Stack Developer, AI/ML Enthusiast, AWS Certified.",
+    title: "Jatin Dhameniya | Full-Stack Developer | Hire Me",
+    description: "Full-Stack Developer — React, Node.js, AWS. 400+ DSA. Immediate joiner. Open to SDE roles.",
     url: "https://jatindhameniya.vercel.app",
     siteName: "Jatin Dhameniya",
     type: "website",

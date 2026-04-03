@@ -57,8 +57,9 @@ export function Contact() {
         >
           Let&apos;s <span className="gradient-text-purple">Connect</span>
         </h2>
-        <p className="text-[var(--text-secondary)] text-center mb-14 max-w-md mx-auto">
-          Have a project in mind or just want to chat? I&apos;d love to hear from you.
+        <p className="text-[var(--text-secondary)] text-center mb-14 max-w-lg mx-auto">
+          Actively looking for SDE, Full-Stack, or Frontend internships &amp; full-time roles.
+          Available for <span className="text-green-400">immediate joining</span>. Let&apos;s talk!
         </p>
 
         <div className="grid md:grid-cols-[1.2fr_1fr] gap-10">
