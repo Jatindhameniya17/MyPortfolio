@@ -1,70 +1,99 @@
 "use client";
 
-import { BentoCard } from "@/components/ui/BentoCard";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { skillCategories } from "@/data/skills";
-import {
-  Code2, Database, Cloud, Terminal, GitBranch,
-  Braces, FileCode, Cpu, Server, Container, MonitorSmartphone,
-} from "lucide-react";
-import { GithubIcon } from "@/components/ui/SocialIcons";
+import { motion } from "framer-motion";
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const iconMap: Record<string, React.ComponentType<any>> = {
-  cplusplus: Code2,
-  python: FileCode,
-  javascript: Braces,
-  database: Database,
-  html5: MonitorSmartphone,
-  css3: MonitorSmartphone,
-  react: Cpu,
-  nodejs: Server,
-  mongodb: Database,
-  aws: Cloud,
-  docker: Container,
-  "git-branch": GitBranch,
-  git: GitBranch,
-  github: GithubIcon,
-  code: Code2,
-  terminal: Terminal,
-  "code-2": Code2,
-};
+// All skills flattened for marquee
+const allSkills = skillCategories.flatMap((c) => c.skills);
+
+function SkillBadge({ name }: { name: string }) {
+  return (
+    <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-[var(--border)] bg-[var(--bg-surface)] text-sm text-[var(--text-secondary)] hover:text-[var(--accent)] hover:border-[var(--accent)] transition-all duration-200 whitespace-nowrap shrink-0">
+      {name}
+    </div>
+  );
+}
+
+function Marquee({ children, reverse = false }: { children: React.ReactNode; reverse?: boolean }) {
+  return (
+    <div className="flex overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_10%,white_90%,transparent)]">
+      <div className={`flex gap-4 pr-4 ${reverse ? "animate-marquee direction-reverse" : "animate-marquee"}`} style={reverse ? { animationDirection: "reverse" } : {}}>
+        {children}
+        {children}
+      </div>
+    </div>
+  );
+}
 
 export function Skills() {
-  const headingRef = useScrollAnimation<HTMLHeadingElement>({ animation: "slideLeft" });
+  const headingRef = useScrollAnimation<HTMLHeadingElement>({ animation: "fadeUp" });
+
+  const firstRow = allSkills.slice(0, Math.ceil(allSkills.length / 2));
+  const secondRow = allSkills.slice(Math.ceil(allSkills.length / 2));
 
   return (
-    <section id="skills" className="py-24 px-6 bg-[var(--bg-surface)]/50">
+    <section id="skills" className="py-28 px-6">
       <div className="max-w-6xl mx-auto">
         <h2
           ref={headingRef}
-          className="text-4xl sm:text-5xl font-bold font-[family-name:var(--font-clash)] mb-12"
+          className="text-3xl sm:text-4xl font-bold font-[family-name:var(--font-clash)] mb-4 text-center"
         >
-          Tech <span className="text-[var(--accent)]">Stack</span>
+          Tech <span className="gradient-text-purple">Stack</span>
         </h2>
+        <p className="text-[var(--text-secondary)] text-center mb-14 max-w-lg mx-auto">
+          Technologies and tools I work with to bring ideas to life
+        </p>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {skillCategories.map((category, catIdx) => (
-            <BentoCard key={category.title} delay={catIdx * 0.1}>
-              <h3 className="text-lg font-semibold text-[var(--accent)] mb-4">
-                {category.title}
-              </h3>
-              <div className="space-y-3">
-                {category.skills.map((skill) => {
-                  const Icon = iconMap[skill.icon] || Code2;
-                  return (
-                    <div key={skill.name} className="flex items-center gap-3 group">
-                      <Icon className="w-5 h-5 text-[var(--text-secondary)] group-hover:text-[var(--accent)] transition-colors" />
-                      <span className="text-sm text-[var(--text-secondary)] group-hover:text-[var(--text-primary)] transition-colors">
-                        {skill.name}
-                      </span>
-                    </div>
-                  );
-                })}
-              </div>
-            </BentoCard>
-          ))}
+        <div className="space-y-4">
+          <Marquee>
+            {firstRow.map((skill) => (
+              <SkillBadge key={skill.name} name={skill.name} />
+            ))}
+          </Marquee>
+          <Marquee reverse>
+            {secondRow.map((skill) => (
+              <SkillBadge key={skill.name} name={skill.name} />
+            ))}
+          </Marquee>
         </div>
+
+        {/* Category cards below */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-14"
+        >
+          {skillCategories.map((category) => (
+            <div
+              key={category.title}
+              className="spotlight-card p-5"
+              onMouseMove={(e) => {
+                const rect = e.currentTarget.getBoundingClientRect();
+                e.currentTarget.style.setProperty("--mouse-x", `${e.clientX - rect.left}px`);
+                e.currentTarget.style.setProperty("--mouse-y", `${e.clientY - rect.top}px`);
+              }}
+            >
+              <div className="relative z-10">
+                <h3 className="text-sm font-semibold text-[var(--accent)] mb-3 uppercase tracking-wider">
+                  {category.title}
+                </h3>
+                <div className="flex flex-wrap gap-1.5">
+                  {category.skills.map((skill) => (
+                    <span
+                      key={skill.name}
+                      className="text-xs px-2.5 py-1 rounded-md bg-[var(--bg)] text-[var(--text-secondary)]"
+                    >
+                      {skill.name}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
+        </motion.div>
       </div>
     </section>
   );

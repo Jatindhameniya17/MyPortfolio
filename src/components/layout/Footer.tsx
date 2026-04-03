@@ -3,7 +3,7 @@
 import { Mail, ArrowUp } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/ui/SocialIcons";
 
-const socialLinks = [
+const links = [
   { icon: GithubIcon, href: "https://github.com/Jatindhameniya17", label: "GitHub" },
   { icon: LinkedinIcon, href: "https://www.linkedin.com/in/jatin-dhameniya-044417264/", label: "LinkedIn" },
   { icon: Mail, href: "mailto:jatindhameniya13@gmail.com", label: "Email" },
@@ -11,19 +11,14 @@ const socialLinks = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-[var(--border)] py-8 px-6">
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-        <p className="text-sm text-[var(--text-secondary)]">
-          Designed & Built by{" "}
-          <span className="text-[var(--accent)] font-semibold">Jatin Dhameniya</span>
-        </p>
-
+    <footer className="border-t border-[var(--border)] py-6 px-6">
+      <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
         <p className="text-xs text-[var(--text-secondary)]">
-          Made with Next.js, Tailwind CSS, GSAP & Three.js
+          &copy; 2026 Jatin Dhameniya. Built with Next.js &amp; Tailwind.
         </p>
 
-        <div className="flex items-center gap-4">
-          {socialLinks.map(({ icon: Icon, href, label }) => (
+        <div className="flex items-center gap-3">
+          {links.map(({ icon: Icon, href, label }) => (
             <a
               key={label}
               href={href}
@@ -32,14 +27,14 @@ export function Footer() {
               aria-label={label}
               className="text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors"
             >
-              <Icon className="w-5 h-5" />
+              <Icon className="w-4 h-4" />
             </a>
           ))}
-
+          <div className="w-px h-4 bg-[var(--border)] mx-1" />
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             aria-label="Back to top"
-            className="p-2 rounded-full border border-[var(--border)] hover:border-[var(--accent)] hover:text-[var(--accent)] text-[var(--text-secondary)] transition-all"
+            className="text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors"
           >
             <ArrowUp className="w-4 h-4" />
           </button>
