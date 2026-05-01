@@ -5,7 +5,7 @@ const FAQ_RESPONSES: Record<string, string> = {
   skills:
     "Jatin is skilled in C++, Python, JavaScript, SQL, ReactJS, Node.js, MongoDB, AWS (EC2, S3), Docker, and CI/CD. He's also proficient with Git, Linux, and VS Code.",
   experience:
-    "Jatin interned at Skillmind Software Limited (Jun-Aug 2025) as a Software Developer, where he built ReactJS UI components, integrated REST APIs, and contributed to ML modules for predictive analytics.",
+    "Jatin is currently working at Vizilare Technology Pvt. Ltd. in AI Automation & Testing. He previously interned at Skillmind Software Limited (Jun-Aug 2025) as a Software Developer, building ReactJS UI components, REST APIs, and ML modules.",
   projects:
     "Jatin has built the AAE Exercise Web App (React + ExerciseDB API + YouTube API) and a Contact Manager Website (React CRUD app with LocalStorage). More projects are in the pipeline!",
   education:

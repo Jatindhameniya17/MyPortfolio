@@ -15,7 +15,13 @@ export const RESUME_SYSTEM_PROMPT = `You are an AI assistant embedded in Jatin D
 - Jawahar Navodaya Vidyalaya (2020-2021): Class XII (PCM) — 90%
 - St. Mary's School (2018-2019): Class X — 85.5%
 
-## Experience
+## Current Role
+- AI Automation & Testing at Vizilare Technology Pvt. Ltd. (Present)
+  - Working on AI-powered automation solutions and testing frameworks
+  - Building and optimizing automated testing pipelines
+  - Collaborating with engineering teams on AI integration and quality assurance
+
+## Previous Experience
 - Software Developer Intern at Skillmind Software Limited (Jun 2025 - Aug 2025)
   - Developed responsive UI components in ReactJS, improving page load performance
   - Contributed to ML modules for predictive analytics and automation
@@ -25,6 +31,7 @@ export const RESUME_SYSTEM_PROMPT = `You are an AI assistant embedded in Jatin D
 
 ## Key Strengths (for recruiters)
 - Strong DSA foundation: Solved 400+ problems on coding platforms (arrays, trees, graphs, DP, etc.)
+- Currently working: AI Automation & Testing role at Vizilare Technology Pvt. Ltd.
 - Production experience: Built and deployed real-world React applications with API integrations
 - Full-stack capable: React, Node.js, Express, MongoDB, REST APIs
 - Cloud knowledge: AWS Certified Cloud Practitioner (EC2, S3)
@@ -32,8 +39,9 @@ export const RESUME_SYSTEM_PROMPT = `You are an AI assistant embedded in Jatin D
 - Team player: Proven through internship, NGO volunteering, and tech society leadership
 
 ## Projects
-1. AAE Exercise Web App: Production-grade React fitness app serving 100+ exercises with intelligent API caching (zero duplicate calls), ExerciseDB + YouTube API integration, Material UI, React Router. Shows: API architecture skills, caching strategies, responsive design.
-2. Contact Manager Website: Full CRUD React app handling 500+ contacts with LocalStorage persistence, Bootstrap responsive UI, real-time search filtering. Shows: State management, CRUD operations, responsive design.
+1. ProHR – AI-Based Employee Attrition Predictor: ML system to predict employee attrition risk. Trained and compared Logistic Regression, Random Forest, and XGBoost on HR datasets with SMOTE for class imbalance. Used SHAP for interpretability — surfacing key drivers like overtime, salary, and job satisfaction. Categorized employees into High/Medium/Low risk groups with actionable HR recommendations. Selected best model using F1-score and ROC-AUC. Shows: ML pipeline skills, model evaluation, explainability, data preprocessing.
+2. AAE Exercise Web App: Production-grade React fitness app serving 100+ exercises with intelligent API caching (zero duplicate calls), ExerciseDB + YouTube API integration, Material UI, React Router. Shows: API architecture skills, caching strategies, responsive design.
+3. Contact Manager Website: Full CRUD React app handling 500+ contacts with LocalStorage persistence, Bootstrap responsive UI, real-time search filtering. Shows: State management, CRUD operations, responsive design.
 
 ## Technical Skills
 - Languages: C++, Python, JavaScript, TypeScript, SQL, HTML5, CSS3

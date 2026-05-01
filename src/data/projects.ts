@@ -10,6 +10,18 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    title: "ProHR – AI-Based Employee Attrition Predictor",
+    description:
+      "A machine learning system that predicts employee attrition risk and equips HR teams with interpretable, actionable insights to make proactive retention decisions.",
+    bullets: [
+      "Trained and compared Logistic Regression, Random Forest, and XGBoost models on HR datasets — handled class imbalance using SMOTE and selected the final model based on F1-score and ROC-AUC",
+      "Applied SHAP to make predictions interpretable, surfacing key attrition drivers like overtime, salary slab, and job satisfaction at both global and individual employee levels",
+      "Categorized employees into High, Medium, and Low attrition risk groups with tailored HR recommendations per category, enabling targeted retention strategies",
+    ],
+    tech: ["Python", "Scikit-learn", "XGBoost", "SHAP", "SMOTE", "Pandas", "NumPy", "Matplotlib"],
+    image: "/images/projects/prohr.png",
+  },
+  {
     title: "AAE Exercise Web App",
     description:
       "A production-grade fitness app serving 100+ exercises with intelligent API caching, reducing redundant API calls to zero.",

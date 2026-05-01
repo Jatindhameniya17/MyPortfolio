@@ -42,8 +42,8 @@ export function Navbar() {
           className={cn(
             "flex items-center gap-1 px-2 py-2 rounded-full border transition-all duration-300",
             scrolled
-              ? "bg-[var(--bg)]/80 backdrop-blur-xl border-[var(--border)] shadow-lg shadow-black/10"
-              : "bg-[var(--bg)]/40 backdrop-blur-md border-transparent"
+              ? "bg-white/75 dark:bg-[var(--bg)]/80 backdrop-blur-xl border-[var(--border)] shadow-lg shadow-purple-200/30 dark:shadow-black/10"
+              : "bg-white/55 dark:bg-[var(--bg)]/40 backdrop-blur-md border-[var(--border)]"
           )}
         >
           {/* Logo */}

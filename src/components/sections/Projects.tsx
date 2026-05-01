@@ -104,18 +104,36 @@ export function Projects() {
             </motion.div>
           ))}
 
-          {/* Coming soon */}
+          {/* GitHub CTA */}
           <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
             className="shine-border"
           >
-            <div className="rounded-2xl bg-[var(--bg-surface)] p-10 text-center">
-              <p className="text-[var(--text-secondary)]">
-                More projects coming soon...
-              </p>
+            <div className="rounded-2xl bg-[var(--bg-surface)] p-10 text-center flex flex-col items-center gap-5">
+              <div className="p-3 rounded-2xl bg-[var(--accent)]/10 border border-[var(--accent)]/20">
+                <GithubIcon className="w-6 h-6 text-[var(--accent)]" />
+              </div>
+              <div>
+                <p className="text-lg font-bold text-[var(--text-primary)] font-[family-name:var(--font-clash)] mb-1">
+                  There&apos;s more where that came from
+                </p>
+                <p className="text-sm text-[var(--text-secondary)] max-w-sm mx-auto">
+                  Explore all my projects, experiments, and open-source work on GitHub.
+                </p>
+              </div>
+              <a
+                href="https://github.com/Jatindhameniya17"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[var(--accent)]/10 border border-[var(--accent)]/30 text-sm font-medium text-[var(--accent)] hover:bg-[var(--accent)]/20 hover:border-[var(--accent)]/60 transition-all duration-200"
+              >
+                <GithubIcon className="w-4 h-4" />
+                Visit my GitHub
+                <ExternalLink className="w-3.5 h-3.5" />
+              </a>
             </div>
           </motion.div>
         </div>

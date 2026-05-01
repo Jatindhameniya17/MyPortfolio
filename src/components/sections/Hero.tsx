@@ -14,10 +14,12 @@ const socials = [
 ];
 
 const subtitles = [
+  "Machine Learning Engineer | Python & Scikit-learn",
+  "AI Automation & Testing Engineer",
   "Full-Stack Developer | React & Node.js",
   "400+ DSA Problems Solved",
   "AWS Certified | Cloud & DevOps",
-  "2025 B.Tech Graduate | Immediate Joiner",
+  "AI & ML Enthusiast | Building Intelligent Systems",
 ];
 
 export function Hero() {
@@ -66,7 +68,7 @@ export function Hero() {
             className="hero-fade inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[var(--border)] bg-[var(--bg-surface)] text-sm text-[var(--text-secondary)] mb-8"
           >
             <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-            Open to Internships &amp; Full-Time Roles
+            Currently at Vizilare Technology &bull; Open to Opportunities
           </motion.div>
 
           {/* Main heading */}
